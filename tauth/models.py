@@ -18,7 +18,7 @@ class AdminService(models.Model):
 class SSOUser(TimestampMixin, models.Model):
     email = models.EmailField(primary_key=True)
     is_active = models.BooleanField(default=True)
-    allowed_services = models.ManyToManyField(AdminService)
+    allowed_services = models.ManyToManyField(AdminService, related_name='user')
 
     def __str__(self):
         return self.email
